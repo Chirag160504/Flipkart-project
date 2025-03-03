@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}Flipkart|Cart{% endblock %} 
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9">
+        
+        <!-- Carts Starts here -->
+        {% for x in allcarts %}
+        <div class="col-md-4 mt-4">
+            <img src="{{x.productid.images.url}}" alt="{{x.productid.productname}}" width="400px" height="400px">            
+        </div>
+
+        <div class="col-md-6 mt-3">
+            <div class="card-header fw-bold">
+                Product Details :
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{x.productid.productname}}</h5>
+                <p class="card-text text-success fw-bold">Special Offer Price!</p>
+                <p class="card-text">
+                    <strong>{{x.productid.price}}/-</strong>
+                    &nbsp;
+                    <del>{{x.productid.price|add:x.productid.price}}/-</del>
+                    <span class="text-success">50% off</span>
+                </p>
+
+                <p class="card-text">{{x.productid.description}}</p>
+                <p class="card-text fw-bold">Available Offers :</p>
+                <ul>
+                    <li>Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C</li>
+
+                    <li>Bank Offer5% off up to ₹750 on IDFC FIRST Power Women Platinum and Signature Debit Card. Min Txn Value: ₹5,000T&C</li>
+                        
+                    <li>Special PriceGet extra ₹44000 off (price inclusive of cashback/coupon)T&C</li>
+                        
+                    <li>No cost EMI ₹7,000/month. Standard EMI also availableView Plans</li>
+                </ul>
+                <p class="card-text">Delivery by {{date}} | <span class="card-text">Free</span></p>
+                <p class="card-text">10 Days Return Policy</p>
+                <p>
+                    <strong>QTY:</strong>
+                    <a href="/updateqty/0/{{x.productid.productid}}"><button class="btn btn-danger">-</button></a>
+                    <input type="number" value="{{x.qty}}" style="width: 30px;">
+                    <a href="/updateqty/1/{{x.productid.productid}}"><button class="btn btn-success">+</button></a>
+                </p>    
+
+                <a class="btn btn-warning" href="/addaddress">Make Payment</a>
+                <a class="btn btn-primary" href="/removecart/{{x.productid.productid}}">Remove Product</a>
+
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+        <!-- Carts Ends here -->
+                 
+        <!-- Totalsection Starts here -->
+        <div class="col-md-3 mt-3">
+
+            <div class="">
+                <h5 class="btn-danger text-success">Total Amount Section!</h5>
+                <h4><strong>Total Items: </strong></h4>
+                <hr>
+                <h4><strong>Total Amount: Rs</strong></h4>
+                <a href="/addaddress" class="btn btn-danger">Make Payment</a>
+            </div>    
+        </div>
+        <!-- Totalsection Ends here -->
+    </div>
+</div>
+{% endblock %}

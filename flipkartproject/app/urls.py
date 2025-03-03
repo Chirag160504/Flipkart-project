@@ -15,5 +15,11 @@ urlpatterns = [
     path("reset_password/<uname>/", views.reset_password, name="reset_password"),
     path('about/', views.about, name = 'about'),
     path('contact/', views.contact, name = 'contact'),
-
+    path('showcarts/', views.showcarts, name = 'showcarts'),
+    path('addtocart/<productid>/', views.addtocart, name = 'addtocart'),
+    path('removecart/<productid>/', views.removecart, name = 'removecart'),
+    path('updateqty/<int:qv>/<productid>/', views.updateqty, name = 'updateqty'),
+    path('addaddress/', views.addaddress, name = 'addaddress'),
+    path('showaddress/', views.showaddress, name = 'showaddress'),
+    
 ]
