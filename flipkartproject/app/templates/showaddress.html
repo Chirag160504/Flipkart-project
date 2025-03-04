@@ -13,7 +13,7 @@
                     <input type="radio" id="x_{{x.id}}">
                     <label for="x_{{x.id}}">
                         <strong>Mobile:</strong>{{x.mobile}}<br>
-                        <strong>Address:</strong>{{x.address}}<br>
+                        <strong>Address:</strong>{{x.address}}<br> 
                         <strong>Pincode:</strong>{{x.pincode}}<br>
                     </label>
                 </div>
@@ -24,6 +24,9 @@
                 {% endfor %}
             </div>
         </form>
+
+        <a href="/addaddress"><input type="button" class="btn btn-danger" value="Cancel"></a>
+        <a href="/payment"><input type="submit" class="btn btn-success" value="Proceed to Payment"></a>
     </div>
 </div>
 
